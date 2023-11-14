@@ -1,6 +1,5 @@
 .completed{
-    text-decoration: line-through;
-    opacity: 0.5;
+    opacity: 0.4;
 }
 .fall{
     opacity: 0;
@@ -18,4 +17,14 @@
 h1{
     padding: 1.5rem;
     text-align: center;
+}
+
+.list{
+   padding-top: 4rem; 
+   /* align-items: center; */
+   justify-content: center;
+}
+li{
+    text-transform:capitalize;
+    
 }
