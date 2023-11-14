@@ -21,10 +21,9 @@ h1{
 
 .list{
    padding-top: 4rem; 
-   /* align-items: center; */
    justify-content: center;
 }
 li{
     text-transform:capitalize;
-    
+    p
 }
