@@ -2,70 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <title>TodoList</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
-    <!-- Bootstrap CSS -->
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-rel="stylesheet"
-integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-crossorigin="anonymous"
-/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
   </head>
-  <body style="background-color: #ebf8ff">
-    <div class="container">
-      <div class="container-sm col-12 col-md-10">
-        <h1 class="title">Todo Task List Using JS</h1>
+  <body class="main">
+    <div class="container-sm col-12 col-md-10">
+      <h1>Create your Todo-List</h1>
+      <form>
         <div class="input-group input-group-lg">
           <input
             type="text"
-            class="form-control"
-            placeholder="Tasks For Today?"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
+            class="form-control custom-input"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+            id="task-input"
+            placeholder="What are your tasks for today?"
+            autocomplete="off"
           />
-          <button
-            type="button"
-            class="btn btn"
-            style="background-color: #68d391"
-          >
+          <button type="submit" class="btn btn-success" id="task-submit">
             <i class="bi bi-clipboard2-plus-fill"></i>
-          </button> 
-         
-       
-        <button
-          class="btn "
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-          style="background-color: #4299E1;"
-        >
-        <i class="bi bi-funnel-fill"></i>
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Option 1</a>
-          <a class="dropdown-item" href="#">Option 2</a>
-          <a class="dropdown-item" href="#">Option 3</a>
+          </button>
+          <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-filter-square-fill"></i>
+   </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="#">All</a></li>
+            <li><a class="dropdown-item" href="#">Completed</a></li>
+            <li><a class="dropdown-item" href="#">Uncompleted</a></li>
+          </ul>
         </div>
-      </div> 
-   </div>
-   </div>
-   </body>
+        </div>
+      </form>
+<div>
+  
+        <ul class="task-list"></ul>
+      </div>
+    </div>
+<script src="app.js"></script>
+  </body>
 </html>

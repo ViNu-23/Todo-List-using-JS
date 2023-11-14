@@ -1,7 +1,21 @@
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.fall{
+    opacity: 0;
+    transform: translateY(10rem) rotateZ(90deg);
+}
 .container{
-margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.main{
+    background-color: #BEE3F8;
 }
 h1{
+    padding: 1.5rem;
     text-align: center;
-    padding-bottom: 1rem;
 }
