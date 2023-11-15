@@ -8,7 +8,7 @@ Body: Contains the main content of your application.
 Body Content:
 Container: A Bootstrap container class is used to create a responsive fixed-width container.
 
-Heading: <h1> tag for the main title "Create your Todo-List."
+Heading: h1 tag for the main title "Create your Todo-List."
 
 Form: A form that includes:
 
@@ -30,7 +30,7 @@ If not, it calls the addTodo2 function.
 addTodo2 Function:
 
 Creates a new div with the class "card-body" to represent a task.
-Appends a paragraph (<p>) element with the class "card-text" containing the task text.
+Appends a paragraph (p) element with the class "card-text" containing the task text.
 Creates "Completed" and "Delete" buttons with appropriate Bootstrap styles and appends them to the task.
 Project Summary:
 Your project is a simple To-Do List application that allows users to input tasks, mark tasks as completed, and delete tasks. The UI is designed using Bootstrap for styling and responsiveness. JavaScript is used to handle user interactions, dynamically adding tasks to the list, and providing basic validation. The project follows a modular structure, separating the task addition logic into separate functions for better organization.
