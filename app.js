@@ -14,10 +14,12 @@ function addTodo(e) {
 }
 
 function goodToGo(e) {
+  //parent div have paragraph and button
   const mainDiv = document.createElement("div");
   mainDiv.className = "card-body";
   todoList.appendChild(mainDiv);
 
+  //creating paragraph tag to append list text
   const paraElement = document.createElement("p");
   paraElement.className = "card-text";
   paraElement.appendChild(document.createTextNode(todoInput.value));
@@ -37,27 +39,32 @@ function goodToGo(e) {
   mainDiv.appendChild(trashBtn);
 
   e.preventDefault();
+  //making input value null so previous task will be no more
+  todoInput.value = null;
 }
 
-//remove task from task list
-// const removeTask = document.querySelector(".task-list");
-// removeTask.addEventListener("click", remTask);
+// remove task from task list
+const removeTask = document.querySelector(".card");
+removeTask.addEventListener("click", remTask);
 
-// function remTask(e) {
-//   const items = e.target;
-//   if (items.className === "btn btn-danger") {
-//     const todo = items.parentElement;
-//     todo.classList.add("fall");
-//     todo.addEventListener("transitionend", function () {
-//       todo.remove();
-//     });
-//     //task completed effect
-//   }
-//   if (items.className === "btn btn-primary") {
-//     const todo = items.parentElement;
-//     todo.classList.toggle("completed");
-//     result = todoInput.value;
-//   }
+//getting buttons by parents div to do add action
+function remTask(e) {
+  const items = e.target;
 
-//   e.preventDefault();
-// }
+  //remove task function and effect
+  if (items.className === "btn btn-danger") {
+    const todo = items.parentElement;
+    todo.classList.add("fall");
+    todo.addEventListener("transitionend", function () {
+      todo.remove();
+    });
+  }
+  //task completed function and effect
+  if (items.className === "btn btn-primary") {
+    const todo = items.parentElement;
+    todo.classList.toggle("completed");
+    result = todoInput.value;
+  }
+
+  e.preventDefault();
+}
