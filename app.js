@@ -4,9 +4,14 @@ const todoList = document.querySelector(".card");
 
 todoButton.addEventListener("click", addTodo);
 
+//without click added listeners to get all tasks list from local storage
+document.addEventListener("DOMContentLoaded", function (e) {
+  getTodo();
+});
+
 //null validation
 function addTodo(e) {
-  if (todoInput.value == 0) {
+  if (todoInput.value === 0) {
     alert("Enter Task");
   } else {
     goodToGo(e);
@@ -23,7 +28,8 @@ function goodToGo(e) {
   const paraElement = document.createElement("p");
   paraElement.className = "card-text";
   paraElement.appendChild(document.createTextNode(todoInput.value));
-  paraElement.value = "";
+  // paraElement.value = "";
+  setTodo(todoInput.value);
   mainDiv.appendChild(paraElement);
 
   //task complete button rendering
@@ -55,6 +61,7 @@ function remTask(e) {
   if (items.className === "btn btn-danger") {
     const todo = items.parentElement;
     todo.classList.add("fall");
+    removeLocal(todo);
     todo.addEventListener("transitionend", function () {
       todo.remove();
     });
@@ -65,6 +72,65 @@ function remTask(e) {
     todo.classList.toggle("completed");
     result = todoInput.value;
   }
-
   e.preventDefault();
+}
+
+//check pre existing data in local storage
+function setTodo(todo) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.push(todo);
+
+  //setting to local storage
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+//get todo task from local storage
+function getTodo() {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  todos.forEach(function (todo) {
+    const mainDiv = document.createElement("div");
+    mainDiv.className = "card-body";
+    todoList.appendChild(mainDiv);
+
+    //creating paragraph tag to append list text
+    const paraElement = document.createElement("p");
+    paraElement.className = "card-text";
+    paraElement.appendChild(document.createTextNode(todo));
+    paraElement.value = "";
+    mainDiv.appendChild(paraElement);
+
+    //task complete button rendering
+    const completeBtn = document.createElement("button");
+    completeBtn.className = "btn btn-primary";
+    completeBtn.innerHTML = `Completed`;
+    mainDiv.appendChild(completeBtn);
+
+    //task remove button rendering
+    const trashBtn = document.createElement("button");
+    trashBtn.className = "btn btn-danger";
+    trashBtn.innerHTML = `Delete`;
+    mainDiv.appendChild(trashBtn);
+  });
+}
+//removing from local
+function removeLocal(todo) {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  const todoIndex = todo.children[0].innerHTML;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
 }
