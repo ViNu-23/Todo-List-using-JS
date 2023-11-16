@@ -4,6 +4,7 @@
 <img width="221" alt="Screenshot 2023-11-16 195647" src="https://github.com/ViNu-23/Todo-List-using-JS/assets/59360964/c4c3e08e-abb6-4830-8a97-d0205500c951">
 <img width="220" alt="Screenshot 2023-11-16 195724" src="https://github.com/ViNu-23/Todo-List-using-JS/assets/59360964/420b4710-4c83-400a-abb1-112f792377ea">
 <img width="955" alt="Screenshot 2023-11-16 195848" src="https://github.com/ViNu-23/Todo-List-using-JS/assets/59360964/247773e5-e07e-4e8e-9c21-793b320e9e6f">
+
 ## Features
 
 - Add tasks to your todo list.
