@@ -1,33 +1,43 @@
-# Todo-List-using-JS
+# A simple Todo List application using HTML, CSS, and JavaScript.
 
-# HTML Structure:
-Meta Tags: These provide character set information and viewport configuration for better rendering on various devices.
-Bootstrap and Custom Stylesheets: You are importing Bootstrap CSS and Bootstrap Icons for styling. The style.css file is also included, but its content is not provided in your code snippet.
-Title: Sets the title of the HTML document to "TodoList."
-Body: Contains the main content of your application.
+## Features
 
-# Body Content:
-Container: A Bootstrap container class is used to create a responsive fixed-width container.
-Heading: h1 tag for the main title "Create your Todo-List."
-Form: A form that includes:
-Input Group: An input field for users to input their tasks.
-Add Button: A button to submit the task.
-Filter Dropdown Button: A button to toggle a dropdown menu for filtering tasks.
-Dropdown Menu: A Bootstrap dropdown menu with three options: "All," "Completed," and "Uncompleted."
-Task List Container: A container to hold the task list, represented by a Bootstrap card.
+- Add tasks to your todo list.
+- Mark tasks as completed.
+- Remove tasks from the list.
+- Filter tasks based on completion status (All, Completed, Uncompleted).
+- Data persistence using local storage.
 
-# JavaScript:
-Event Listeners:todoButton.addEventListener("click", addTodo);: Listens for a click on the "Add" button and triggers the addTodo function.
 
-# addTodo Function:
-Checks if the input field is empty. If so, it displays an alert.
-If not, it calls the addTodo2 function.
+1. **HTML Structure:**
+   - The HTML structure defines a simple Todo List application. It includes input fields for adding tasks, buttons for submitting tasks, filtering tasks, and a container for displaying tasks.
 
-# addTodo2 Function:
+2. **JavaScript Logic:**
+   - The JavaScript code is responsible for the dynamic behavior of the Todo List application.
 
-Creates a new div with the class "card-body" to represent a task.
-Appends a paragraph (p) element with the class "card-text" containing the task text.
-Creates "Completed" and "Delete" buttons with appropriate Bootstrap styles and appends them to the task.
+3. **Event Listeners:**
+   - `todoAll`, `todoCompleted`, and `todoUncompleted` are buttons for filtering tasks based on their completion status.
+   - `todoButton` is the button for adding a new task.
+   - `document.addEventListener("DOMContentLoaded", function (e) {...}` ensures that the page's content is fully loaded before executing the specified function, in this case, `getTodo()`.
 
-# Project Summary:
-Your project is a simple To-Do List application that allows users to input tasks, mark tasks as completed, and delete tasks. The UI is designed using Bootstrap for styling and responsiveness. JavaScript is used to handle user interactions, dynamically adding tasks to the list, and providing basic validation. The project follows a modular structure, separating the task addition logic into separate functions for better organization.
+4. **Add Todo Functionality (`addTodo` and `goodToGo`):**
+   - The `addTodo` function is triggered when the "Add Todo" button (`todoButton`) is clicked. It checks if the input field (`todoInput`) is empty and shows an alert if it is. Otherwise, it calls the `goodToGo` function.
+   - The `goodToGo` function creates a new task element (a `div` with class `card-body`) containing a paragraph (`p`) for the task text, a "Completed" button, and a "Delete" button. It also calls the `setTodo` function to save the task to local storage.
+
+5. **Remove Todo Functionality (`remTask`):**
+   - The `remTask` function is triggered when a button inside the task is clicked. It checks if the clicked button has the class "btn-danger" (Delete button) or "btn-primary" (Completed button).
+   - If the button is a delete button, it adds a CSS class for a falling animation (`fall`), removes the task from local storage (`removeLocal`), and then removes the task from the DOM.
+   - If the button is a Completed button, it toggles the "task-completed" class on the parent task element.
+
+6. **Filtering Functionality (`filterAll`, `filterCompleted`, `filterUncompleted`):**
+   - These functions are triggered when the corresponding filter buttons are clicked.
+   - `filterAll` shows all tasks by setting the display property to "flex" for all task elements.
+   - `filterCompleted` shows only completed tasks by hiding tasks without the "task-completed" class.
+   - `filterUncompleted` shows only uncompleted tasks by hiding tasks with the "task-completed" class.
+
+7. **LocalStorage Functions (`setTodo`, `getTodo`, `removeLocal`):**
+   - `setTodo` stores a new task in local storage.
+   - `getTodo` retrieves tasks from local storage on page load and renders them in the DOM.
+   - `removeLocal` removes a task from local storage based on the task's text content.
+
+Overall, this code creates a simple Todo List application with functionality for adding, removing, and filtering tasks, and it persists tasks in the browser's local storage.

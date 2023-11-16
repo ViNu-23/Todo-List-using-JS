@@ -6,9 +6,9 @@ const todoAll = document.querySelector(".all");
 const todoCompleted = document.querySelector(".completed");
 const todoUncompleted = document.querySelector(".uncompleted");
 
-todoAll.addEventListener('click', filterAll)
-todoCompleted.addEventListener('click', filterCompleted)
-todoUncompleted.addEventListener('click', filterUncompleted)
+todoAll.addEventListener("click", filterAll);
+todoCompleted.addEventListener("click", filterCompleted);
+todoUncompleted.addEventListener("click", filterUncompleted);
 
 todoButton.addEventListener("click", addTodo);
 
@@ -83,58 +83,46 @@ function remTask(e) {
   e.preventDefault();
 }
 
-
 //filtering for 3 condition on click
 
 function filterAll(e) {
   todoAll.classList.add("active");
-  todoCompleted.classList.remove('active')
-  todoUncompleted.classList.remove('active')
-
-  e.preventDefault()
+  todoCompleted.classList.remove("active");
+  todoUncompleted.classList.remove("active");
+  const tasks = document.querySelectorAll(".selectCard .card-body");
+  tasks.forEach((task) => (task.style.display = "flex"));
+  e.preventDefault();
 }
+
 function filterCompleted(e) {
   todoCompleted.classList.add("active");
   todoAll.classList.remove("active");
   todoUncompleted.classList.remove("active");
-
-  e.preventDefault()
-
+  const tasks = document.querySelectorAll(".selectCard .card-body");
+  tasks.forEach((task) => {
+    if (task.classList.contains("task-completed")) {
+      task.style.display = "flex";
+    } else {
+      task.style.display = "none";
+    }
+  });
+  e.preventDefault();
 }
+
 function filterUncompleted(e) {
   todoUncompleted.classList.add("active");
   todoCompleted.classList.remove("active");
   todoAll.classList.remove("active");
-  
-  e.preventDefault()
-
+  const tasks = document.querySelectorAll(".selectCard .card-body");
+  tasks.forEach((task) => {
+    if (!task.classList.contains("task-completed")) {
+      task.style.display = "flex";
+    } else {
+      task.style.display = "none";
+    }
+  });
+  e.preventDefault();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //check pre existing data in local storage
 function setTodo(todo) {
@@ -191,6 +179,7 @@ function removeLocal(todo) {
   } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
+
   const todoIndex = todo.children[0].innerHTML;
   todos.splice(todos.indexOf(todoIndex), 1);
   localStorage.setItem("todos", JSON.stringify(todos));
