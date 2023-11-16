@@ -1,17 +1,25 @@
 const todoInput = document.querySelector("#task-input");
 const todoButton = document.querySelector("#task-submit");
-const todoList = document.querySelector(".card");
+const todoList = document.querySelector(".selectCard");
+
+const todoAll = document.querySelector(".all");
+const todoCompleted = document.querySelector(".completed");
+const todoUncompleted = document.querySelector(".uncompleted");
+
+todoAll.addEventListener('click', filterAll)
+todoCompleted.addEventListener('click', filterCompleted)
+todoUncompleted.addEventListener('click', filterUncompleted)
 
 todoButton.addEventListener("click", addTodo);
 
-//without click added listeners to get all tasks list from local storage
+// without click added listeners to get all tasks list from local storage
 document.addEventListener("DOMContentLoaded", function (e) {
   getTodo();
 });
 
 //null validation
 function addTodo(e) {
-  if (todoInput.value === 0) {
+  if (todoInput.value == 0) {
     alert("Enter Task");
   } else {
     goodToGo(e);
@@ -28,7 +36,7 @@ function goodToGo(e) {
   const paraElement = document.createElement("p");
   paraElement.className = "card-text";
   paraElement.appendChild(document.createTextNode(todoInput.value));
-  // paraElement.value = "";
+  paraElement.value = "";
   setTodo(todoInput.value);
   mainDiv.appendChild(paraElement);
 
@@ -50,7 +58,7 @@ function goodToGo(e) {
 }
 
 // remove task from task list
-const removeTask = document.querySelector(".card");
+const removeTask = document.querySelector(".selectCard");
 removeTask.addEventListener("click", remTask);
 
 //getting buttons by parents div to do add action
@@ -69,11 +77,64 @@ function remTask(e) {
   //task completed function and effect
   if (items.className === "btn btn-primary") {
     const todo = items.parentElement;
-    todo.classList.toggle("completed");
+    todo.classList.toggle("task-completed");
     result = todoInput.value;
   }
   e.preventDefault();
 }
+
+
+//filtering for 3 condition on click
+
+function filterAll(e) {
+  todoAll.classList.add("active");
+  todoCompleted.classList.remove('active')
+  todoUncompleted.classList.remove('active')
+
+  e.preventDefault()
+}
+function filterCompleted(e) {
+  todoCompleted.classList.add("active");
+  todoAll.classList.remove("active");
+  todoUncompleted.classList.remove("active");
+
+  e.preventDefault()
+
+}
+function filterUncompleted(e) {
+  todoUncompleted.classList.add("active");
+  todoCompleted.classList.remove("active");
+  todoAll.classList.remove("active");
+  
+  e.preventDefault()
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //check pre existing data in local storage
 function setTodo(todo) {

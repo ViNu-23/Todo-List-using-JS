@@ -1,4 +1,4 @@
-.completed{
+.task-completed{
     opacity: 0.4;
     text-decoration-line: line-through;
 }
