@@ -1,4 +1,4 @@
-# A simple Todo List application using HTML, CSS, and JavaScript.
+# Responsive Todo List application using HTML, CSS, and JavaScript.
 
 <img width="224" alt="Screenshot 2023-11-16 200151" src="https://github.com/ViNu-23/Todo-List-using-JS/assets/59360964/1881f2df-b680-4c92-93f5-9ff593266e32">
 <img width="221" alt="Screenshot 2023-11-16 195647" src="https://github.com/ViNu-23/Todo-List-using-JS/assets/59360964/c4c3e08e-abb6-4830-8a97-d0205500c951">
